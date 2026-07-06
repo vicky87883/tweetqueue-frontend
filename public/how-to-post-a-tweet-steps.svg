@@ -1,0 +1,40 @@
+<svg width="1440" height="720" viewBox="0 0 1440 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1440" height="720" fill="#050505"/>
+  <text x="120" y="100" fill="#E7E9EA" font-family="Arial, sans-serif" font-size="48" font-weight="900">From idea to published post</text>
+  <text x="120" y="145" fill="#71767B" font-family="Arial, sans-serif" font-size="22">A simple workflow for posting on Twitter/X with confidence.</text>
+  <g transform="translate(120 220)">
+    <rect width="260" height="280" rx="32" fill="#0B0B0B" stroke="#2A2A2A"/>
+    <circle cx="54" cy="58" r="24" fill="#1DA1F2"/>
+    <text x="47" y="67" fill="#000" font-family="Arial" font-size="26" font-weight="900">1</text>
+    <text x="34" y="125" fill="#E7E9EA" font-family="Arial" font-size="26" font-weight="800">Pick one idea</text>
+    <text x="34" y="170" fill="#AAB0B5" font-family="Arial" font-size="17">Do not mix too many</text>
+    <text x="34" y="198" fill="#AAB0B5" font-family="Arial" font-size="17">messages in one post.</text>
+  </g>
+  <g transform="translate(430 220)">
+    <rect width="260" height="280" rx="32" fill="#0B0B0B" stroke="#2A2A2A"/>
+    <circle cx="54" cy="58" r="24" fill="#1DA1F2"/>
+    <text x="47" y="67" fill="#000" font-family="Arial" font-size="26" font-weight="900">2</text>
+    <text x="34" y="125" fill="#E7E9EA" font-family="Arial" font-size="26" font-weight="800">Write a hook</text>
+    <text x="34" y="170" fill="#AAB0B5" font-family="Arial" font-size="17">Open with the result,</text>
+    <text x="34" y="198" fill="#AAB0B5" font-family="Arial" font-size="17">lesson, or question.</text>
+  </g>
+  <g transform="translate(740 220)">
+    <rect width="260" height="280" rx="32" fill="#0B0B0B" stroke="#2A2A2A"/>
+    <circle cx="54" cy="58" r="24" fill="#1DA1F2"/>
+    <text x="47" y="67" fill="#000" font-family="Arial" font-size="26" font-weight="900">3</text>
+    <text x="34" y="125" fill="#E7E9EA" font-family="Arial" font-size="26" font-weight="800">Add context</text>
+    <text x="34" y="170" fill="#AAB0B5" font-family="Arial" font-size="17">Use short lines, proof,</text>
+    <text x="34" y="198" fill="#AAB0B5" font-family="Arial" font-size="17">media, or examples.</text>
+  </g>
+  <g transform="translate(1050 220)">
+    <rect width="260" height="280" rx="32" fill="#0B0B0B" stroke="#2A2A2A"/>
+    <circle cx="54" cy="58" r="24" fill="#1DA1F2"/>
+    <text x="47" y="67" fill="#000" font-family="Arial" font-size="26" font-weight="900">4</text>
+    <text x="34" y="125" fill="#E7E9EA" font-family="Arial" font-size="26" font-weight="800">Post or queue</text>
+    <text x="34" y="170" fill="#AAB0B5" font-family="Arial" font-size="17">Publish now or schedule</text>
+    <text x="34" y="198" fill="#AAB0B5" font-family="Arial" font-size="17">inside TweetQueue.</text>
+  </g>
+  <path d="M385 360H420" stroke="#1DA1F2" stroke-width="4" stroke-linecap="round"/>
+  <path d="M695 360H730" stroke="#1DA1F2" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1005 360H1040" stroke="#1DA1F2" stroke-width="4" stroke-linecap="round"/>
+</svg>

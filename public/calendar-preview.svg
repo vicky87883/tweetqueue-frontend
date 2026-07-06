@@ -1,0 +1,45 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" rx="36" fill="#050505"/>
+  <rect x="40" y="40" width="1120" height="680" rx="28" fill="#0A0A0A" stroke="#2A2A2A" stroke-width="2"/>
+  <text x="84" y="116" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="38" font-weight="900">Calendar planner</text>
+  <text x="84" y="154" fill="#71767B" font-family="Arial, sans-serif" font-size="20">Keep every day filled without crowding your best posting windows.</text>
+  <g>
+    <rect x="84" y="216" width="148" height="106" rx="22" fill="#111111" stroke="#1DA1F2" stroke-width="2"/>
+    <text x="116" y="258" fill="#71767B" font-family="Arial, sans-serif" font-size="16">Mon</text>
+    <text x="116" y="300" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="34" font-weight="900">4</text>
+    <rect x="260" y="216" width="148" height="106" rx="22" fill="#111111" stroke="#2A2A2A"/>
+    <text x="292" y="258" fill="#71767B" font-family="Arial, sans-serif" font-size="16">Tue</text>
+    <text x="292" y="300" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="34" font-weight="900">4</text>
+    <rect x="436" y="216" width="148" height="106" rx="22" fill="#111111" stroke="#2A2A2A"/>
+    <text x="468" y="258" fill="#71767B" font-family="Arial, sans-serif" font-size="16">Wed</text>
+    <text x="468" y="300" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="34" font-weight="900">4</text>
+    <rect x="612" y="216" width="148" height="106" rx="22" fill="#111111" stroke="#2A2A2A"/>
+    <text x="644" y="258" fill="#71767B" font-family="Arial, sans-serif" font-size="16">Thu</text>
+    <text x="644" y="300" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="34" font-weight="900">4</text>
+    <rect x="788" y="216" width="148" height="106" rx="22" fill="#111111" stroke="#2A2A2A"/>
+    <text x="820" y="258" fill="#71767B" font-family="Arial, sans-serif" font-size="16">Fri</text>
+    <text x="820" y="300" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="34" font-weight="900">4</text>
+    <rect x="964" y="216" width="112" height="106" rx="22" fill="#111111" stroke="#2A2A2A"/>
+    <text x="996" y="258" fill="#71767B" font-family="Arial, sans-serif" font-size="16">Sat</text>
+    <text x="996" y="300" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="34" font-weight="900">4</text>
+  </g>
+  <rect x="84" y="390" width="474" height="244" rx="28" fill="#070707" stroke="#2A2A2A"/>
+  <text x="126" y="446" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="26" font-weight="800">Best time slots</text>
+  <rect x="126" y="492" width="360" height="28" rx="14" fill="#1DA1F2"/>
+  <rect x="126" y="548" width="286" height="28" rx="14" fill="#2A2A2A"/>
+  <rect x="126" y="604" width="228" height="28" rx="14" fill="#2A2A2A"/>
+  <rect x="618" y="390" width="458" height="244" rx="28" fill="#070707" stroke="#2A2A2A"/>
+  <text x="660" y="446" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="26" font-weight="800">Post density</text>
+  <g fill="#1DA1F2">
+    <circle cx="700" cy="526" r="20"/>
+    <circle cx="768" cy="526" r="20"/>
+    <circle cx="836" cy="526" r="20"/>
+    <circle cx="904" cy="526" r="20"/>
+    <circle cx="700" cy="594" r="20"/>
+    <circle cx="768" cy="594" r="20"/>
+    <circle cx="836" cy="594" r="20"/>
+    <circle cx="904" cy="594" r="20"/>
+  </g>
+  <text x="960" y="536" fill="#71767B" font-family="Arial, sans-serif" font-size="18">28 posts</text>
+  <text x="960" y="596" fill="#71767B" font-family="Arial, sans-serif" font-size="18">7 days</text>
+</svg>
