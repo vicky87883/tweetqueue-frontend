@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, BriefcaseBusiness, MapPin, Sparkles } from 'lucide-react';
 import { MobileAppDock } from '@/components/mobile-app-dock';
-import { jobs } from '@/lib/content';
+import { getPublicJobs } from '@/lib/public-content';
 
 export const metadata: Metadata = {
   title: 'Careers at TweetQueue - Build the X Scheduling Platform',
@@ -20,15 +20,14 @@ const values = [
   'Build with security and reliability in mind',
 ];
 
-export default function CareersPage() {
+export default async function CareersPage() {
+  const jobs = await getPublicJobs();
+
   return (
     <main className="min-h-dvh bg-black pb-24 text-white md:pb-0">
       <section className="border-b border-gray-800 bg-zinc-950 px-4 py-7 sm:px-6 sm:py-10">
         <div className="mx-auto max-w-6xl">
-          <Link
-            href="/"
-            className="mb-6 inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white"
-          >
+          <Link href="/" className="mb-6 inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white">
             <ArrowLeft className="h-4 w-4" />
             Back to TweetQueue
           </Link>
@@ -37,16 +36,14 @@ export default function CareersPage() {
             <div>
               <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-black px-3 py-1.5 text-sm text-[#1DA1F2]">
                 <BriefcaseBusiness className="h-4 w-4" />
-                Careers
+                Open roles
               </div>
               <h1 className="text-balance text-4xl font-black leading-tight sm:text-6xl">
                 Build the operating system for X creators
               </h1>
             </div>
             <p className="max-w-2xl text-base leading-relaxed text-gray-400 sm:text-lg">
-              TweetQueue is building focused tools for planning, scheduling, analytics,
-              and creator workflows. We care about fast product surfaces, clear writing,
-              and production-ready systems.
+              These openings are loaded from the backend when published, with safe static fallback content so the page remains searchable and reliable.
             </p>
           </div>
         </div>
@@ -70,20 +67,14 @@ export default function CareersPage() {
 
           <section className="space-y-4">
             {jobs.map((job) => (
-              <Link
-                key={job.slug}
-                href={`/careers/${job.slug}`}
-                className="card group block rounded-3xl p-5 sm:p-6"
-              >
+              <Link key={job.slug} href={`/careers/${job.slug}`} className="card group block rounded-3xl p-5 sm:p-6">
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                   <div>
                     <div className="mb-3 w-fit rounded-full bg-zinc-900 px-3 py-1 text-xs text-[#1DA1F2]">
                       {job.department}
                     </div>
                     <h2 className="text-2xl font-bold group-hover:text-[#1DA1F2]">{job.title}</h2>
-                    <p className="mt-3 max-w-2xl text-sm leading-relaxed text-gray-400">
-                      {job.summary}
-                    </p>
+                    <p className="mt-3 max-w-2xl text-sm leading-relaxed text-gray-400">{job.summary}</p>
                   </div>
                   <div className="shrink-0 rounded-2xl border border-gray-800 bg-black p-4 text-sm text-gray-400 sm:min-w-44">
                     <div className="flex items-center gap-2">
@@ -96,6 +87,12 @@ export default function CareersPage() {
                 </div>
               </Link>
             ))}
+
+            {!jobs.length && (
+              <div className="rounded-3xl border border-gray-800 bg-zinc-950 p-8 text-center text-gray-400">
+                No open roles right now. Check back soon.
+              </div>
+            )}
           </section>
         </div>
       </section>
