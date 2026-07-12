@@ -2,16 +2,14 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { AuthProgress } from '@/components/auth-progress';
 import { MobileAppDock } from '@/components/mobile-app-dock';
 import { ApiError, apiFetch } from '@/lib/api';
-import { saveSession, type SessionUser } from '@/lib/session';
 
-type AuthResponse = {
+type RegisterResponse = {
   success: boolean;
-  token: string;
-  user: SessionUser;
+  verificationRequired?: boolean;
+  message?: string;
 };
 
 export default function Register() {
@@ -20,23 +18,27 @@ export default function Register() {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const router = useRouter();
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     if (loading) return;
     setLoading(true);
     setError('');
+    setSuccessMessage('');
 
     try {
-      const data = await apiFetch<AuthResponse>('/api/auth/register', {
+      const data = await apiFetch<RegisterResponse>('/api/auth/register', {
         method: 'POST',
         body: JSON.stringify({ name: name.trim(), email: email.trim(), password }),
       });
 
-      if (data.success && data.token && data.user) {
-        saveSession({ token: data.token, user: data.user });
-        router.push('/dashboard');
+      if (data.success) {
+        setSuccessMessage(
+          data.message ||
+            'Account created. Please check your inbox and verify your email before signing in.'
+        );
+        setPassword('');
       } else {
         setError('Registration failed');
       }
@@ -64,7 +66,7 @@ export default function Register() {
             Create TweetQueue account
           </h1>
           <p className="mt-2 text-sm text-gray-500 sm:mt-3 sm:text-base">
-            Create a secure workspace for your X queue
+            Verify your email to activate your secure X queue workspace.
           </p>
         </div>
 
@@ -119,6 +121,12 @@ export default function Register() {
 
           {loading && <AuthProgress label="Creating account" />}
 
+          {successMessage && (
+            <p className="rounded-2xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-center text-sm text-emerald-200 sm:text-base">
+              {successMessage}
+            </p>
+          )}
+
           {error && (
             <p className="rounded-2xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-center text-sm text-red-300 sm:text-base">
               {error}
@@ -135,7 +143,7 @@ export default function Register() {
         </form>
 
         <p className="mt-6 text-center text-sm text-gray-500 sm:mt-8 sm:text-base">
-          Already have an account?{' '}
+          Already verified?{' '}
           <Link href="/login" className="font-medium text-[#1DA1F2] hover:underline">
             Sign in
           </Link>
