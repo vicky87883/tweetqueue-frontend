@@ -1,59 +1,104 @@
 <svg width="1440" height="920" viewBox="0 0 1440 920" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1440" height="920" fill="#000000"/>
-  <rect x="56" y="48" width="1328" height="824" rx="28" fill="#0A0A0A" stroke="#2A2A2A" stroke-width="2"/>
-  <rect x="56" y="48" width="260" height="824" rx="28" fill="#050505"/>
-  <path d="M316 49V871" stroke="#2A2A2A" stroke-width="2"/>
-  <text x="96" y="112" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="38" font-weight="800">TweetQueue</text>
-  <text x="96" y="150" fill="#71767B" font-family="Arial, sans-serif" font-size="18">Production dashboard</text>
-  <rect x="92" y="210" width="172" height="54" rx="20" fill="#1DA1F2"/>
-  <text x="128" y="244" fill="#000000" font-family="Arial, sans-serif" font-size="20" font-weight="800">Queue</text>
-  <rect x="92" y="286" width="172" height="54" rx="20" fill="#111111" stroke="#2A2A2A"/>
-  <text x="128" y="320" fill="#E7E9EA" font-family="Arial, sans-serif" font-size="20" font-weight="700">Calendar</text>
-  <rect x="92" y="362" width="172" height="54" rx="20" fill="#111111" stroke="#2A2A2A"/>
-  <text x="128" y="396" fill="#E7E9EA" font-family="Arial, sans-serif" font-size="20" font-weight="700">Analytics</text>
-  <rect x="92" y="704" width="172" height="84" rx="22" fill="#111111" stroke="#2A2A2A"/>
-  <circle cx="126" cy="746" r="18" fill="#2A2A2A"/>
-  <text x="158" y="741" fill="#E7E9EA" font-family="Arial, sans-serif" font-size="16" font-weight="700">@creator</text>
-  <text x="158" y="765" fill="#00BA7C" font-family="Arial, sans-serif" font-size="14">Connected</text>
-  <text x="372" y="122" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="42" font-weight="900">Weekly publishing queue</text>
-  <text x="372" y="164" fill="#71767B" font-family="Arial, sans-serif" font-size="20">Draft, review, and schedule 28 posts without tab switching.</text>
-  <rect x="372" y="216" width="278" height="136" rx="24" fill="#111111" stroke="#2A2A2A"/>
-  <text x="404" y="262" fill="#71767B" font-family="Arial, sans-serif" font-size="18">Scheduled</text>
-  <text x="404" y="314" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="54" font-weight="900">28</text>
-  <rect x="690" y="216" width="278" height="136" rx="24" fill="#111111" stroke="#2A2A2A"/>
-  <text x="722" y="262" fill="#71767B" font-family="Arial, sans-serif" font-size="18">Best slot</text>
-  <text x="722" y="314" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="42" font-weight="900">10:00</text>
-  <text x="848" y="314" fill="#1DA1F2" font-family="Arial, sans-serif" font-size="24" font-weight="800">AM</text>
-  <rect x="1008" y="216" width="278" height="136" rx="24" fill="#111111" stroke="#2A2A2A"/>
-  <text x="1040" y="262" fill="#71767B" font-family="Arial, sans-serif" font-size="18">Engagement</text>
-  <text x="1040" y="314" fill="#00BA7C" font-family="Arial, sans-serif" font-size="48" font-weight="900">+12%</text>
-  <rect x="372" y="400" width="560" height="352" rx="28" fill="#070707" stroke="#2A2A2A"/>
-  <text x="410" y="456" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="26" font-weight="800">Next posts</text>
+  <defs>
+    <linearGradient id="surface" x1="80" y1="60" x2="1310" y2="860" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#101419"/>
+      <stop offset="0.52" stop-color="#07090C"/>
+      <stop offset="1" stop-color="#0B1014"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#45C7FF"/>
+      <stop offset="1" stop-color="#1D8CF2"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#49F2A5"/>
+      <stop offset="1" stop-color="#00BA7C"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="1440" height="920" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="30" stdDeviation="36" flood-color="#000000" flood-opacity="0.55"/>
+    </filter>
+  </defs>
+
+  <rect width="1440" height="920" fill="#000"/>
+  <rect x="44" y="42" width="1352" height="836" rx="36" fill="url(#surface)" stroke="#27313B" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="44" y="42" width="1352" height="92" rx="36" fill="#0D1117"/>
+  <path d="M44 134H1396" stroke="#25303A" stroke-width="2"/>
+  <circle cx="94" cy="88" r="10" fill="#FF5F57"/>
+  <circle cx="126" cy="88" r="10" fill="#FFBD2E"/>
+  <circle cx="158" cy="88" r="10" fill="#28C840"/>
+  <text x="210" y="96" fill="#F7FBFF" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="850">TweetQueue Command Center</text>
+  <rect x="1114" y="66" width="214" height="44" rx="22" fill="#0A0F14" stroke="#24313D"/>
+  <circle cx="1142" cy="88" r="8" fill="#00BA7C"/>
+  <text x="1162" y="95" fill="#C8D2DD" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">X account live</text>
+
+  <rect x="72" y="166" width="260" height="666" rx="28" fill="#070A0D" stroke="#202B35"/>
+  <text x="108" y="224" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="900">𝕏</text>
+  <text x="154" y="218" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="850">TweetQueue</text>
+  <text x="154" y="248" fill="#7D8A96" font-family="Inter, Arial, sans-serif" font-size="15">Creator workspace</text>
+
+  <g font-family="Inter, Arial, sans-serif" font-size="18" font-weight="750">
+    <rect x="104" y="304" width="196" height="58" rx="18" fill="url(#blue)"/>
+    <text x="154" y="340" fill="#001018">Dashboard</text>
+    <rect x="104" y="382" width="196" height="58" rx="18" fill="#0F151B" stroke="#26333E"/>
+    <text x="154" y="418" fill="#D6DEE8">Scheduler</text>
+    <rect x="104" y="460" width="196" height="58" rx="18" fill="#0F151B" stroke="#26333E"/>
+    <text x="154" y="496" fill="#D6DEE8">AI Studio</text>
+    <rect x="104" y="538" width="196" height="58" rx="18" fill="#0F151B" stroke="#26333E"/>
+    <text x="154" y="574" fill="#D6DEE8">Analytics</text>
+  </g>
+
+  <rect x="106" y="700" width="190" height="94" rx="24" fill="#0F151B" stroke="#26333E"/>
+  <circle cx="144" cy="747" r="22" fill="#17212B"/>
+  <text x="180" y="742" fill="#F5F7FA" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800">@creator</text>
+  <text x="180" y="768" fill="#49F2A5" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Verified session</text>
+
+  <text x="382" y="218" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="44" font-weight="900">Weekly publishing queue</text>
+  <text x="382" y="258" fill="#8B98A5" font-family="Inter, Arial, sans-serif" font-size="20">Plan, write, schedule, and review every X post from one visual cockpit.</text>
+
   <g>
-    <rect x="410" y="494" width="484" height="70" rx="18" fill="#111111" stroke="#2A2A2A"/>
-    <text x="434" y="522" fill="#1DA1F2" font-family="Arial, sans-serif" font-size="15" font-weight="700">Today 10:00 AM</text>
-    <text x="434" y="548" fill="#E7E9EA" font-family="Arial, sans-serif" font-size="18">Thread: launch notes for the week</text>
+    <rect x="382" y="306" width="282" height="142" rx="28" fill="#0E141A" stroke="#26333E"/>
+    <text x="416" y="354" fill="#8B98A5" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Scheduled posts</text>
+    <text x="416" y="410" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="58" font-weight="950">28</text>
+    <path d="M570 398C594 376 620 386 634 352" stroke="#49F2A5" stroke-width="7" stroke-linecap="round"/>
   </g>
   <g>
-    <rect x="410" y="584" width="484" height="70" rx="18" fill="#111111" stroke="#2A2A2A"/>
-    <text x="434" y="612" fill="#1DA1F2" font-family="Arial, sans-serif" font-size="15" font-weight="700">Today 3:00 PM</text>
-    <text x="434" y="638" fill="#E7E9EA" font-family="Arial, sans-serif" font-size="18">Behind the scenes build post</text>
+    <rect x="698" y="306" width="282" height="142" rx="28" fill="#0E141A" stroke="#26333E"/>
+    <text x="732" y="354" fill="#8B98A5" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Best slot</text>
+    <text x="732" y="410" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="48" font-weight="950">10:00</text>
+    <text x="866" y="410" fill="#45C7FF" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="900">AM</text>
   </g>
   <g>
-    <rect x="410" y="674" width="484" height="70" rx="18" fill="#111111" stroke="#2A2A2A"/>
-    <text x="434" y="702" fill="#1DA1F2" font-family="Arial, sans-serif" font-size="15" font-weight="700">Tomorrow 9:30 AM</text>
-    <text x="434" y="728" fill="#E7E9EA" font-family="Arial, sans-serif" font-size="18">Growth lesson with CTA</text>
+    <rect x="1014" y="306" width="282" height="142" rx="28" fill="#0E141A" stroke="#26333E"/>
+    <text x="1048" y="354" fill="#8B98A5" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Queue health</text>
+    <text x="1048" y="410" fill="#49F2A5" font-family="Inter, Arial, sans-serif" font-size="48" font-weight="950">98%</text>
   </g>
-  <rect x="972" y="400" width="314" height="352" rx="28" fill="#070707" stroke="#2A2A2A"/>
-  <text x="1010" y="456" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="26" font-weight="800">7 day plan</text>
-  <g fill="#1DA1F2">
-    <rect x="1012" y="620" width="22" height="74" rx="8"/>
-    <rect x="1054" y="570" width="22" height="124" rx="8"/>
-    <rect x="1096" y="536" width="22" height="158" rx="8"/>
-    <rect x="1138" y="586" width="22" height="108" rx="8"/>
-    <rect x="1180" y="514" width="22" height="180" rx="8"/>
-    <rect x="1222" y="548" width="22" height="146" rx="8"/>
+
+  <rect x="382" y="492" width="594" height="300" rx="32" fill="#090D12" stroke="#26333E"/>
+  <text x="422" y="548" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="900">Next posts</text>
+  <text x="828" y="548" fill="#8B98A5" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Auto publishing</text>
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="422" y="588" width="514" height="58" rx="18" fill="#101821" stroke="#24313D"/>
+    <rect x="422" y="588" width="6" height="58" rx="3" fill="#45C7FF"/>
+    <text x="452" y="613" fill="#45C7FF" font-size="14" font-weight="800">TODAY · 10:00 AM</text>
+    <text x="452" y="636" fill="#F2F6FA" font-size="17" font-weight="700">Thread: launch notes for the week</text>
+    <rect x="422" y="664" width="514" height="58" rx="18" fill="#101821" stroke="#24313D"/>
+    <rect x="422" y="664" width="6" height="58" rx="3" fill="#49F2A5"/>
+    <text x="452" y="689" fill="#49F2A5" font-size="14" font-weight="800">TODAY · 3:00 PM</text>
+    <text x="452" y="712" fill="#F2F6FA" font-size="17" font-weight="700">Behind the scenes build post</text>
+    <rect x="422" y="740" width="514" height="58" rx="18" fill="#101821" stroke="#24313D"/>
+    <rect x="422" y="740" width="6" height="58" rx="3" fill="#FFBD2E"/>
+    <text x="452" y="765" fill="#FFBD2E" font-size="14" font-weight="800">TOMORROW · 9:30 AM</text>
+    <text x="452" y="788" fill="#F2F6FA" font-size="17" font-weight="700">Growth lesson with CTA</text>
   </g>
-  <path d="M1012 508C1054 482 1086 496 1126 474C1167 452 1206 472 1246 438" stroke="#00BA7C" stroke-width="8" stroke-linecap="round"/>
-  <text x="1010" y="728" fill="#71767B" font-family="Arial, sans-serif" font-size="16">Balanced post volume across the week</text>
+
+  <rect x="1014" y="492" width="282" height="300" rx="32" fill="#090D12" stroke="#26333E"/>
+  <text x="1050" y="548" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="900">7 day plan</text>
+  <g fill="url(#blue)">
+    <rect x="1054" y="682" width="22" height="58" rx="8"/>
+    <rect x="1096" y="626" width="22" height="114" rx="8"/>
+    <rect x="1138" y="592" width="22" height="148" rx="8"/>
+    <rect x="1180" y="646" width="22" height="94" rx="8"/>
+    <rect x="1222" y="570" width="22" height="170" rx="8"/>
+  </g>
+  <path d="M1054 630C1090 604 1118 616 1156 586C1194 556 1220 570 1244 534" stroke="url(#green)" stroke-width="8" stroke-linecap="round"/>
+  <text x="1050" y="766" fill="#8B98A5" font-family="Inter, Arial, sans-serif" font-size="15">Balanced across formats</text>
 </svg>
