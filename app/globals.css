@@ -17,6 +17,11 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+body::selection {
+  background: rgba(29, 161, 242, 0.45);
+  color: #ffffff;
+}
+
 p,
 li,
 input,
@@ -42,6 +47,7 @@ small,
   font-size: clamp(1.5rem, 5vw, 2rem);
   font-weight: 900;
   letter-spacing: -0.08em;
+  text-shadow: 0 0 28px rgba(29, 161, 242, 0.28);
 }
 
 @media (min-width: 640px) {
@@ -53,14 +59,35 @@ small,
 
 /* Beautiful Card & Button Styles */
 .card {
-  background-color: #0a0a0a;
-  border: 1px solid #2a2a2a;
-  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(17, 24, 32, 0.98), rgba(6, 8, 12, 0.98));
+  border: 1px solid rgba(58, 75, 92, 0.72);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.32);
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(135deg, rgba(69, 199, 255, 0.12), transparent 36%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), transparent 30%);
+  opacity: 0.9;
+}
+
+.card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .card:hover {
-  border-color: #1f1f1f;
-  transform: translateY(-2px);
+  border-color: rgba(69, 199, 255, 0.62);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.48), 0 0 0 1px rgba(29, 161, 242, 0.12);
+  transform: translateY(-3px);
 }
 
 @media (max-width: 639px) {
@@ -70,13 +97,15 @@ small,
 }
 
 .btn-primary {
-  background-color: #1DA1F2;
-  color: black;
-  font-weight: 700;
+  background: linear-gradient(135deg, #45C7FF, #1DA1F2 58%, #1580CF);
+  color: #001018;
+  font-weight: 800;
+  box-shadow: 0 16px 40px rgba(29, 161, 242, 0.28);
 }
 
 .btn-primary:hover {
-  background-color: #1a8cd8;
+  background: linear-gradient(135deg, #69D4FF, #1A8CD8 58%, #116EA8);
+  box-shadow: 0 20px 55px rgba(29, 161, 242, 0.36);
 }
 
 .motion-fade-up {
@@ -101,17 +130,37 @@ small,
 
 .hero-grid {
   background-image:
-    linear-gradient(rgba(29, 161, 242, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(29, 161, 242, 0.08) 1px, transparent 1px);
-  background-size: 72px 72px;
+    linear-gradient(rgba(69, 199, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(69, 199, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(9, 15, 22, 0.4), rgba(0, 0, 0, 1) 72%);
+  background-size: 72px 72px, 72px 72px, 100% 100%;
   background-position: center top;
 }
 
 .image-frame,
 .product-frame {
-  background: #050505;
-  border: 1px solid #2a2a2a;
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+  position: relative;
+  background: #05080c;
+  border: 1px solid rgba(66, 82, 100, 0.86);
+  box-shadow:
+    0 34px 95px rgba(0, 0, 0, 0.62),
+    0 0 0 1px rgba(29, 161, 242, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.image-frame::after,
+.product-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  box-shadow: inset 0 0 80px rgba(69, 199, 255, 0.06);
+}
+
+.product-frame img,
+.image-frame img {
+  filter: saturate(1.08) contrast(1.04);
 }
 
 .mobile-app-dock {
@@ -128,9 +177,9 @@ small,
 
 .mobile-app-dock > div,
 .mobile-dock-inner {
-  border: 1px solid rgba(31, 41, 55, 0.8);
+  border: 1px solid rgba(49, 64, 78, 0.92);
   border-radius: 1.35rem;
-  background: rgba(9, 9, 9, 0.94);
+  background: rgba(9, 12, 16, 0.96);
   padding: 0.25rem;
 }
 
@@ -139,6 +188,11 @@ small,
 .mobile-dock-item {
   min-height: 3.2rem;
   border-radius: 1rem;
+}
+
+.mobile-dock-item:hover {
+  color: #ffffff;
+  background: rgba(29, 161, 242, 0.12);
 }
 
 .mobile-safe-page {
@@ -171,10 +225,10 @@ small,
 }
 
 .mobile-app-screen {
-  border: 1px solid #2a2a2a;
+  border: 1px solid rgba(66, 82, 100, 0.86);
   border-radius: 32px;
-  background: #050505;
-  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
+  background: #05080c;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   overflow: hidden;
 }
 
@@ -185,7 +239,7 @@ small,
   height: 0.35rem;
   margin: 0.75rem auto;
   border-radius: 999px;
-  background: #2a2a2a;
+  background: #2a3642;
 }
 
 @media (max-width: 767px) {
@@ -201,7 +255,7 @@ small,
     height: 0.35rem;
     margin: 0.75rem auto;
     border-radius: 999px;
-    background: #2a2a2a;
+    background: #2a3642;
   }
 }
 
@@ -267,10 +321,10 @@ small,
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #2a2a2a;
+  background-color: #2a3642;
   border-radius: 20px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #444;
+  background-color: #425266;
 }
