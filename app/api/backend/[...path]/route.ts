@@ -33,10 +33,6 @@ const json = (body: unknown, status = 200) => NextResponse.json(body, { status }
 const textArray = (value: unknown) => (Array.isArray(value) ? value : []);
 const slugify = (value: string) => trim(value).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
-if (!JWT_SECRET) {
-  throw new Error('JWT_SECRET must be set in production.');
-}
-
 const ENC_KEY = crypto.createHash('sha256').update(process.env.ENCRYPTION_KEY || JWT_SECRET || 'dev-key').digest();
 
 type RouteContext = {
@@ -67,12 +63,20 @@ function open(value: string | null | undefined) {
 }
 
 function sign(user: { id: string; email: string }) {
+  if (!JWT_SECRET) {
+    throw new Error('JWT_SECRET must be set in production.');
+  }
+
   return jwt.sign({ userId: user.id, email: user.email }, JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN || '7d',
   });
 }
 
 function auth(request: NextRequest): AuthedUser | NextResponse {
+  if (!JWT_SECRET) {
+    return json({ error: 'JWT_SECRET must be configured.' }, 503);
+  }
+
   const header = request.headers.get('authorization') || '';
   const token = header.startsWith('Bearer ') ? header.slice(7) : '';
   if (!token) return json({ error: 'Access token required' }, 401);
