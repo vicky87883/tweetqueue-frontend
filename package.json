@@ -10,7 +10,7 @@
     "dev:webpack": "next dev --webpack",
     "build": "prisma generate && next build",
     "build:hostinger": "prisma db push && prisma generate && next build",
-    "start": "next start",
+    "start": "node server.js",
     "lint": "eslint",
     "db:push": "prisma db push",
     "db:generate": "prisma generate",
