@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { Activity, ArrowLeft, CalendarClock, CheckCircle2, RefreshCw, ShieldCheck, User } from 'lucide-react';
 import { apiFetch } from '@/lib/api';
-import { getSession, type SessionUser } from '@/lib/session';
+import { getAdminSession, type SessionUser } from '@/lib/session';
 
 type ScheduledPost = {
   id: string;
@@ -23,6 +23,7 @@ type HealthStatus = {
   status: string;
   database?: boolean;
   scheduler?: boolean;
+  integrated?: boolean;
 };
 
 const statusLabels: Record<string, string> = {
@@ -67,9 +68,9 @@ export default function AdminPage() {
   }
 
   useEffect(() => {
-    const session = getSession();
+    const session = getAdminSession();
     if (!session) {
-      window.location.href = '/login';
+      window.location.href = '/admin/login';
       return;
     }
     setUser(session.user);
@@ -91,7 +92,7 @@ export default function AdminPage() {
             type="button"
             disabled={loading}
             onClick={() => {
-              const session = getSession();
+              const session = getAdminSession();
               if (session?.token) loadData(session.token);
             }}
             className="inline-flex items-center justify-center gap-2 rounded-full border border-gray-700 px-5 py-3 text-sm font-bold hover:border-[#1DA1F2] disabled:opacity-60"
@@ -108,7 +109,7 @@ export default function AdminPage() {
               </div>
               <h1 className="text-balance text-4xl font-black sm:text-6xl">TweetQueue control center</h1>
               <p className="mt-4 max-w-3xl text-gray-400">
-                Monitor backend health, your connected X account, scheduler queue, failed posts, and production readiness.
+                Monitor app health, database connectivity, scheduler queue, failed posts, and production readiness from the same deployment.
               </p>
             </div>
             <div className="rounded-3xl border border-gray-800 bg-black p-5">
@@ -130,7 +131,7 @@ export default function AdminPage() {
         <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {[
             { label: 'Backend', value: health?.status || 'unknown', detail: health?.database ? 'database connected' : 'database not confirmed', icon: Activity },
-            { label: 'Scheduler', value: health?.scheduler ? 'active' : 'unknown', detail: 'worker checks queue every minute', icon: CalendarClock },
+            { label: 'Deployment', value: health?.integrated ? 'single app' : 'unknown', detail: 'Next.js API routes are serving backend calls', icon: CalendarClock },
             { label: 'X Account', value: xStatus?.connected ? 'connected' : 'not connected', detail: xStatus?.account?.username ? `@${xStatus.account.username}` : 'connect in scheduler', icon: CheckCircle2 },
             { label: 'Failed posts', value: String(counts.failed), detail: counts.failed ? 'check API credits/errors' : 'no failures in current queue', icon: ShieldCheck },
           ].map((item) => (
