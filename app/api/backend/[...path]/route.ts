@@ -341,8 +341,13 @@ async function handle(request: NextRequest, context: RouteContext) {
     const url = new URL(request.url);
 
     if (method === 'GET' && (path === '/' || path === '/api/health')) {
-      await prisma.$queryRaw`SELECT 1`;
-      return json({ service: 'tweetqueue', status: 'ok', database: true, integrated: true });
+      try {
+        await prisma.$queryRaw`SELECT 1`;
+        return json({ service: 'tweetqueue', status: 'ok', database: true, integrated: true });
+      } catch (error) {
+        const message = error instanceof Error ? error.message.split('\n').filter(Boolean).at(-1) : 'Database connection failed';
+        return json({ service: 'tweetqueue', status: 'error', database: false, integrated: true, error: message }, 503);
+      }
     }
 
     if (method === 'POST' && path === '/api/auth/register') {
