@@ -1,7 +1,13 @@
 @import "tailwindcss";
 
-/* Scan these files for class names (Tailwind v4) */
-@source "./**/*.{js,ts,jsx,tsx}";
+/*
+ * Tailwind v4 resolves @source paths relative to this stylesheet.
+ * Scan the App Router plus shared components and library files so
+ * production builds do not drop utility classes used outside /app.
+ */
+@source "./**/*.{js,ts,jsx,tsx,mdx}";
+@source "../components/**/*.{js,ts,jsx,tsx,mdx}";
+@source "../lib/**/*.{js,ts,jsx,tsx,mdx}";
 
 html {
   scroll-behavior: smooth;
