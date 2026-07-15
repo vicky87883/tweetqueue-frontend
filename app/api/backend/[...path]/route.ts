@@ -35,6 +35,25 @@ const slugify = (value: string) => trim(value).toLowerCase().replace(/[^a-z0-9]+
 
 const ENC_KEY = crypto.createHash('sha256').update(process.env.ENCRYPTION_KEY || JWT_SECRET || 'dev-key').digest();
 
+function databaseInfo() {
+  const raw = trim(process.env.DATABASE_URL);
+  if (!raw) return { configured: false };
+
+  try {
+    const url = new URL(raw);
+    return {
+      configured: true,
+      protocol: url.protocol.replace(':', ''),
+      host: url.hostname,
+      port: url.port || '3306',
+      user: decodeURIComponent(url.username),
+      database: url.pathname.replace(/^\//, ''),
+    };
+  } catch {
+    return { configured: true, invalidUrl: true };
+  }
+}
+
 type RouteContext = {
   params: Promise<{ path?: string[] }>;
 };
@@ -343,10 +362,10 @@ async function handle(request: NextRequest, context: RouteContext) {
     if (method === 'GET' && (path === '/' || path === '/api/health')) {
       try {
         await prisma.$queryRaw`SELECT 1`;
-        return json({ service: 'tweetqueue', status: 'ok', database: true, integrated: true });
+        return json({ service: 'tweetqueue', status: 'ok', database: true, integrated: true, databaseInfo: databaseInfo() });
       } catch (error) {
         const message = error instanceof Error ? error.message.split('\n').filter(Boolean).at(-1) : 'Database connection failed';
-        return json({ service: 'tweetqueue', status: 'error', database: false, integrated: true, error: message }, 503);
+        return json({ service: 'tweetqueue', status: 'error', database: false, integrated: true, databaseInfo: databaseInfo(), error: message }, 503);
       }
     }
 
