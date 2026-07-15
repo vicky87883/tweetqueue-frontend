@@ -36,7 +36,7 @@ const slugify = (value: string) => trim(value).toLowerCase().replace(/[^a-z0-9]+
 const ENC_KEY = crypto.createHash('sha256').update(process.env.ENCRYPTION_KEY || JWT_SECRET || 'dev-key').digest();
 
 type RouteContext = {
-  params: Promise<{ path?: string[] }> | { path?: string[] };
+  params: Promise<{ path?: string[] }>;
 };
 
 type AuthedUser = {
